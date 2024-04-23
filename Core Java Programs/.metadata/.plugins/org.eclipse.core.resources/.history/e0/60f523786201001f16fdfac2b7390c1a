@@ -9,7 +9,6 @@ public class Developer extends Employee{
 		projectName = sc.next();
 	}
 	void disDev() {
-		disEmp();
 		System.out.println("Project name is "+projectName);
 	}
 }
