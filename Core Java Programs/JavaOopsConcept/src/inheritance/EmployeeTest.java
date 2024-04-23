@@ -8,15 +8,15 @@ public class EmployeeTest {
 		d.readDev();
 		d.disDev();
 		
-		System.out.println("Manager info");
-		Manager m = new Manager();
-		m.readMgr();
-		m.disMgr();
-		
-		System.out.println("Project Manager info");
-		ProjectManager pm = new ProjectManager();
-		pm.readPmgr();
-		pm.disPmgr();
+//		System.out.println("Manager info");
+//		Manager m = new Manager();
+//		m.readMgr();
+//		m.disMgr();
+//		
+//		System.out.println("Project Manager info");
+//		ProjectManager pm = new ProjectManager();
+//		pm.readPmgr();
+//		pm.disPmgr();
 		
 	}
 
