@@ -1,0 +1,12 @@
+package inheritance;
+
+public class Manager extends Employee{
+private int numberOfEmp;
+
+	void readMgr() {
+		
+	}
+	void disMgr() {
+		
+	}
+}
