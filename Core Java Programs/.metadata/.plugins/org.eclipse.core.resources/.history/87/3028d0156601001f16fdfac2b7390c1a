@@ -17,7 +17,6 @@ Address add = new  Address();
 		name = sc.next();
 		System.out.println("Enter the salary");
 		salary = sc.nextFloat();
-		
 	}
 	void disEmp() {
 		System.out.println("Id is "+id);
