@@ -1,0 +1,13 @@
+package statickeyword;
+class Employee {
+	int eid;
+	static int mid;
+}
+public class StaticExample2 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
