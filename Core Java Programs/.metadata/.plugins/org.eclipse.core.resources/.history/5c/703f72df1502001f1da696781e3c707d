@@ -1,7 +1,8 @@
-package polymorphsim;
-class Bike {
-	void speed() {
-		System.out.println("60km/hr");
+package abstractdemo;
+abstract class Bike {
+	abstract void speed();
+	void mailage() {
+		System.out.println("50km/lt");
 	}
 }
 class Honda extends Bike {
@@ -14,7 +15,6 @@ class Honda extends Bike {
 	}
 }
 class Pulsar extends Bike {
-	//@Override
 	void color() {
 		System.out.println("Gray");
 	}
@@ -23,13 +23,8 @@ class Pulsar extends Bike {
 		System.out.println("90km/hr");
 	}
 }
-
-public class MethodOverridingExample {
+public class AbstractExample {
 	public static void main(String[] args) {
-		Honda hh = new Honda();
-		hh.color();  hh.speed();
-		Pulsar pu = new Pulsar();
-		pu.color();  pu.speed();
+		
 	}
-
 }

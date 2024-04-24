@@ -5,10 +5,6 @@ class Bike {
 	}
 }
 class Honda extends Bike {
-	@Override
-	void speed() {
-		System.out.println("50km/hr");
-	}
 	void color() {
 		System.out.println("Black");
 	}
