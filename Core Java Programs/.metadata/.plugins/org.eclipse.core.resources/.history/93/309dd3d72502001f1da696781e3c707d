@@ -1,0 +1,21 @@
+package interfacetest;
+interface Abc {
+	void dis1();
+}
+interface Xyz {
+	void dis2();
+}
+interface Mno extends Abc,Xyz{
+	void dis3();
+}
+class Demo implements Abc,Xyz {
+	
+}
+public class InterfaceExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
