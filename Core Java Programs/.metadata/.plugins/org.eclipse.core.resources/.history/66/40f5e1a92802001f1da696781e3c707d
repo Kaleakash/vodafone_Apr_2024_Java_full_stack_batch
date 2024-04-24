@@ -1,0 +1,23 @@
+package interfacetest;
+
+public class Sbi implements Bank {
+
+	@Override
+	public void withdraw(int accno, float amount) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deposit(int accno, float amount) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void transferamount(int to, int from, float amout) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
