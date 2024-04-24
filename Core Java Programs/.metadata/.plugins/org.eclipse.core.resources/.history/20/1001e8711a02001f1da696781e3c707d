@@ -4,12 +4,12 @@ final class Bike {
 		System.out.println("60km/hr");
 	}
 }
-//class Honda extends Bike {
-////	@Override
-////	void speed() {
-////		System.out.println("50km/hr");
-////	}
-//}
+class Honda extends Bike {
+//	@Override
+//	void speed() {
+//		System.out.println("50km/hr");
+//	}
+}
 public class FinalExample {
 
 	public static void main(String[] args) {
