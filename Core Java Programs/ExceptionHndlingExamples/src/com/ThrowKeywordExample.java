@@ -25,7 +25,5 @@ public class ThrowKeywordExample {
 		}catch(Exception e) {
 			System.out.println("Exception "+e.toString());
 		}
-
 	}
-
 }
