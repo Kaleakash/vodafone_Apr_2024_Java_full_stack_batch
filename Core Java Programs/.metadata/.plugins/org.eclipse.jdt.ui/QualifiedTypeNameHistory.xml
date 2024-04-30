@@ -5,18 +5,14 @@
     <fullyQualifiedTypeName name="inheritance.Developer"/>
     <fullyQualifiedTypeName name="inheritance.Manager"/>
     <fullyQualifiedTypeName name="inheritance.ProjectManager"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="inheritance.Address"/>
     <fullyQualifiedTypeName name="polymorphsim.Operation"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="statickeyword.Employee"/>
     <fullyQualifiedTypeName name="interfacetest.Hsbc"/>
     <fullyQualifiedTypeName name="interfacetest.Sbi"/>
     <fullyQualifiedTypeName name="education.school.Attendance"/>
     <fullyQualifiedTypeName name="education.college.Attendance"/>
-    <fullyQualifiedTypeName name="com.bean.Employee"/>
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
     <fullyQualifiedTypeName name="com.VoteException"/>
@@ -25,4 +21,16 @@
     <fullyQualifiedTypeName name="com.Task"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="com.Booking"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.bean.Employee"/>
+    <fullyQualifiedTypeName name="com.Customer"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="java.util.TreeSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>
