@@ -2,10 +2,12 @@ package com;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
@@ -33,32 +35,49 @@ public class RetrieveValueFromCollections {
 //		}
 //		System.out.println(ss1);
 		// List classes 
-		List ll = new ArrayList();
-		ll.add(2);ll.add(1);ll.add(6);ll.add(8);
-		System.out.println("Retriee elements one by one using for each");
-		for(Object obj : ll) {
-			System.out.println(obj);
-		}
-		System.out.println("Retrieve elements one by one using iterator");
-		Iterator ii = ll.iterator();
+//		List ll = new ArrayList();
+//		ll.add(2);ll.add(1);ll.add(6);ll.add(8);
+//		System.out.println("Retriee elements one by one using for each");
+//		for(Object obj : ll) {
+//			System.out.println(obj);
+//		}
+//		System.out.println("Retrieve elements one by one using iterator");
+//		Iterator ii = ll.iterator();
+//		while(ii.hasNext()) {
+//			System.out.println(ii.next());
+//		}
+//		ListIterator li = ll.listIterator();
+//		System.out.println("Retreive element one by one using listiterator - forward direction");
+//		while(li.hasNext()) {
+//			System.out.println(li.next());
+//		}
+//		System.out.println("Retreive element one by one using listiterator - backward direction");
+//		while(li.hasPrevious()) {
+//			System.out.println(li.previous());
+//		}
+//		Vector vv = new Vector();
+//		vv.add(2);vv.add(1);vv.add(6);vv.add(8);vv.add(5);
+//		System.out.println("Retrieve element one by one using enumeration from Vector");
+//		Enumeration ee = vv.elements();
+//		while(ee.hasMoreElements()) {
+//			System.out.println(ee.nextElement());
+//		}
+		
+		// Map classes 
+		Map mm= new HashMap();
+		mm.put(1, "Steven");
+		mm.put(6, "Lex");
+		mm.put(3, "John");
+		mm.put(8, "Neena");
+		System.out.println(mm);
+//		for(Object obj:mm) {
+//			
+//		}
+		Set ss = mm.keySet();  // retrieve all keys from map and convert to set. 
+		Iterator ii = ss.iterator();
 		while(ii.hasNext()) {
-			System.out.println(ii.next());
-		}
-		ListIterator li = ll.listIterator();
-		System.out.println("Retreive element one by one using listiterator - forward direction");
-		while(li.hasNext()) {
-			System.out.println(li.next());
-		}
-		System.out.println("Retreive element one by one using listiterator - backward direction");
-		while(li.hasPrevious()) {
-			System.out.println(li.previous());
-		}
-		Vector vv = new Vector();
-		vv.add(2);vv.add(1);vv.add(6);vv.add(8);vv.add(5);
-		System.out.println("Retrieve element one by one using enumeration from Vector");
-		Enumeration ee = vv.elements();
-		while(ee.hasMoreElements()) {
-			System.out.println(ee.nextElement());
+			Object key = ii.next();
+			System.out.println("Key "+key+" Value "+mm.get(key));
 		}
 	}
 
