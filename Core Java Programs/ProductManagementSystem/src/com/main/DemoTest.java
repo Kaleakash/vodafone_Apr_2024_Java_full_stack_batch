@@ -20,7 +20,7 @@ public class DemoTest {
 	ProductService ps = new ProductService();
 	
 	do {
-		System.out.println("1:Add Product 2 :Display Product");
+		System.out.println("1:Add Product 2 :Display Product 3: Delete Product 4 : Update Product price");
 		System.out.println("Enter your choice");
 		choice = sc.nextInt();
 		switch(choice){
@@ -41,6 +41,21 @@ public class DemoTest {
 		    	 System.out.println(p);
 		     }
 		     break;
+		case 3 : System.out.println("Enter product id");
+	     		pid = sc.nextInt();
+	     		result = ps.deletProduct(pid);
+	     		System.out.println(result);
+	     		break;
+		case 4: System.out.println("Enter product id");
+	     		pid = sc.nextInt();
+	     		System.out.println("Enter the price");
+	     		price = sc.nextFloat();
+	     		Product p2 = new Product();
+	     		p2.setPid(pid);
+	     		p2.setPrice(price);
+	     		result = ps.updateProductPrice(p2);
+	     		System.out.println(result);
+	     		break;
 		default :System.out.println("Wrong choice");
 			break;
 		}
