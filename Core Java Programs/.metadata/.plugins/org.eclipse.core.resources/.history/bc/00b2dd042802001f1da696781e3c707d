@@ -1,7 +1,0 @@
-package interfacetest;
-
-public interface Bank {
-	void withdraw();
-	void deposit();
-	void transferamount(int to,int from, float amout);
-}

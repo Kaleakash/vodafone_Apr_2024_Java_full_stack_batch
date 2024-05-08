@@ -24,8 +24,8 @@ public class ProductService {
 			Product p = li.next();
 			if(p.getPid()==product.getPid()) {
 				flag++;
+				break;
 			}
-			break;
 		}
 		if(flag==0) {
 			listOfProduct.add(product);
@@ -47,8 +47,9 @@ public class ProductService {
 			if(p.getPid()==pid) {
 					li.remove();
 				flag++;
+				break;
 			}
-			break;
+			
 		}
 		if(flag==0) {
 			return "Product not present";
@@ -64,11 +65,13 @@ public class ProductService {
 		while(li.hasNext()) {
 			Product p = li.next();
 			if(p.getPid()==product.getPid()) {
+				System.out.println("I Came Here");
 					p.setPrice(product.getPrice());    // update new price once we find the product by pid
 				flag++;
+				break;
 			}
-			break;
 		}
+		
 		if(flag==0) {
 			return "Product not present";
 		}else {

@@ -47,9 +47,9 @@ public class DemoTest {
 	     		System.out.println(result);
 	     		break;
 		case 4: System.out.println("Enter product id");
-	     		pid = sc.nextInt();
+	     			pid = sc.nextInt();
 	     		System.out.println("Enter the price");
-	     		price = sc.nextFloat();
+	     			price = sc.nextFloat();
 	     		Product p2 = new Product();
 	     		p2.setPid(pid);
 	     		p2.setPrice(price);
