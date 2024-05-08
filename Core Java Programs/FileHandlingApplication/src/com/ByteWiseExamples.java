@@ -9,7 +9,7 @@ public class ByteWiseExamples {
 	public static void main(String[] args) throws Exception{
 	// source : keyboards 
 	// target : file 
-//	DataInputStream dis = new DataInputStream(System.in);	
+//	DataInputStream dis = new DataInputStream(System.in);		// byte wise 
 //	//FileOutputStream fos = new FileOutputStream("abc.txt"); // override 
 //	FileOutputStream fos = new FileOutputStream("abc.txt",true);  // append the data
 //	int ch;
