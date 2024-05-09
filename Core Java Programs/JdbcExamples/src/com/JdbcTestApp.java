@@ -32,13 +32,18 @@ Statement stmt = con.createStatement();
 
 
 	//update Query 
-	int result = stmt.executeUpdate("update product set price=60000 where pid=100");
-	if(result>0) {
-	System.out.println("Record updated successfully");
-	}else {
-	System.out.println("Record not present");
-	}
+//	int result = stmt.executeUpdate("update product set price=60000 where pid=100");
+//	if(result>0) {
+//	System.out.println("Record updated successfully");
+//	}else {
+//	System.out.println("Record not present");
+//	}
 	
+	// retreive query 
+	ResultSet rs = stmt.executeQuery("select * from product");
+	while(rs.next()) {
+	System.out.println("pid is "+rs.getInt(1)+" PName is "+rs.getString(2)+" Price "+rs.getFloat(3));
+	}
 	stmt.close();
 	con.close();
 		} catch (Exception e) {
