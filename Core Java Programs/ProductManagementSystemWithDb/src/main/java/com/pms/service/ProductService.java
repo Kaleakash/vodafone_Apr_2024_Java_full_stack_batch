@@ -1,5 +1,8 @@
 package com.pms.service;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.pms.bean.Product;
 import com.pms.dao.ProductDao;
 
@@ -31,5 +34,16 @@ public class ProductService {
 		}else {
 			return "Product not present";
 		}
+	}
+	
+	public List<Product> findAllProduct() {
+		List<Product> listOfProduct = pd.findAllProduct();
+		Iterator<Product> li = listOfProduct.iterator();
+		while(li.hasNext()) {
+			Product p = li.next();
+			float discount = p.getPrice()*0.10f;
+			p.setPrice(p.getPrice()-discount);
+		}
+		return listOfProduct;
 	}
 }
