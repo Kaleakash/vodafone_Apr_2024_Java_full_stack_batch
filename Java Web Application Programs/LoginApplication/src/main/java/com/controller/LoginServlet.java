@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
 		// using service class object call business method 
 		String result = ls.signIn(ll);
 		if(result.equalsIgnoreCase("success")) {
-			rd2.forward(request, response);
+			request.setAttribute("name", emailid);  // store emailid with key as name in request scope 
+			rd2.forward(request, response);				// we re-direct to target page 
 		}else {
 			pw.println("Failure try once again");
 			rd1.include(request, response);

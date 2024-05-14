@@ -27,7 +27,11 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
-		pw.println("Welcome to Home Page");
+		
+		Object obj = request.getAttribute("name");
+		String emailid = (String)obj;
+		pw.println("<font color='red' size=5>Welcome to Home Page "+emailid+"</font>");
+		pw.println("<br/><a href='login.html'>Logout</a>");	// if we want to write any html code it must be in double quote. 
 	}
 
 	/**
