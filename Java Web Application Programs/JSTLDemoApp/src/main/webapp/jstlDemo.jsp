@@ -13,6 +13,8 @@
 int a=10;
 int m=100;
 int n=50;
+	String names[] = {"Steven","Lex","John","Neema","Raj"};
+	request.setAttribute("names", names);
 out.println("Welcome to JSP Page using scriptlet tag, Value of a "+a);
 if(m>n){
 	out.println("<br/>m is largest");
@@ -32,8 +34,25 @@ if(m>n){
 <core:if test="${Integer.parseInt(m1) > Integer.parseInt(n1)}">
 	<core:out value="m is largest"></core:out>
 </core:if>
-<core:if test="${Integer.parseInt(m1) > Integer.parseInt(n1)}">
+<core:if test="${ Integer.parseInt(m1) < Integer.parseInt(n1) }">
 	<core:out value="n is largest"></core:out>
 </core:if>
+<h2>All names retrieve using scriptlet tag </h2>
+<%
+Object obj = request.getAttribute("names");
+String stdnames[]=(String[])obj;
+out.println("<ol>");
+for(String name:stdnames){
+	out.println("<li>"+name+"</li>");
+}
+out.println("</ol>");
+%>
+<h2>All names retrieve using jstl </h2>
+<ol>
+<core:forEach var="name" items="${requestScope.names}">
+	<li><core:out value="${name}"></core:out></li>
+</core:forEach>
+</ol>
 </body>
 </html>
+
