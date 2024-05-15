@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>My E-Banking Application!</h2>
-<form>
+<form action="LoginSignInController" method="post">
 <label>EmailId</label>
 <input type="email" name="emailid"/><br/>
 <label>Password</label>
