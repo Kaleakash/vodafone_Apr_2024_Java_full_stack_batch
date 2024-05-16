@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ebank.bean.Login;
 import com.ebank.service.LoginService;
@@ -46,17 +47,27 @@ public class LoginSignInController extends HttpServlet {
 		ll.setEmailid(emailid);
 		ll.setPassword(password);
 		ll.setTypeofuser(typeofuser);
-		
+		HttpSession hs = request.getSession();
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		
 		LoginService ls = new LoginService();
 		
 		String result = ls.signIn(ll);
+		RequestDispatcher rd1 = request.getRequestDispatcher("customerhome.jsp");
+		RequestDispatcher rd2 = request.getRequestDispatcher("managerhome.jsp");
 		
 		if(result.equalsIgnoreCase("successfully login by customer")) {
+			hs.setAttribute("name", ll.getEmailid());
 			response.sendRedirect("customerhome.jsp");		// output wise equal to forward 
+			
+			//request.setAttribute("name", ll.getEmailid());
+			//rd1.forward(request, response);
 		}else if(result.equalsIgnoreCase("successfully login by manager")) {
+			hs.setAttribute("name", ll.getEmailid());
 			response.sendRedirect("managerhome.jsp");
+			
+			//request.setAttribute("name", ll.getEmailid());
+			//rd2.forward(request, response);
 		}else {
 			pw.println("Invalid emailid or password");
 			rd.include(request, response);

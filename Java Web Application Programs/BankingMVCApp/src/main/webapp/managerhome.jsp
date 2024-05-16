@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Welcome to Manager Home Page</h2>
+<h2>Welcome to Customer Home Page ${sessionScope.name}</h2>
+<%
+Object obj = session.getAttribute("name");
+String name = (String)obj;
+out.println("Welcome manager "+name);
+%>
 </body>
 </html>
