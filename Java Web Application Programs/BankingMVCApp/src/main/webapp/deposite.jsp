@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Welcome to Customer Home Page ${sessionScope.name}</h2>
-<a href="checkBalance.jsp">Check Balance</a>|
-<a href="deposite.jsp">Deposit</a>|
-<a href="withdrawn.jsp">Withdrawn</a>|
+
 </body>
 </html>
