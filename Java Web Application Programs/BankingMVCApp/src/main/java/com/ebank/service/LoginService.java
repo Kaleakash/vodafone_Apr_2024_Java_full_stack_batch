@@ -1,6 +1,8 @@
 package com.ebank.service;
 
+import com.ebank.bean.Account;
 import com.ebank.bean.Login;
+import com.ebank.dao.AccountDao;
 import com.ebank.dao.LoginDao;
 
 public class LoginService {
@@ -31,7 +33,24 @@ public class LoginService {
 		String reversePassword  = sb.reverse().toString();
 		login.setPassword(reversePassword);
 		if(ld.singUp(login)>0) {
-			return "Account created successfully";
+			
+			if(login.getTypeofuser().equals("Customer")) {
+				
+				Account acc = new Account();
+				acc.setEmailid(login.getEmailid());
+				acc.setAmount(1000);
+				
+				AccountDao ad = new AccountDao();
+				
+				if(ad.createAccount(acc)>0) {
+					return "Account created successfully";
+				}else {
+					return "Account didn't create";
+				}
+			}else {
+				return "Account created successfully";
+			}
+			
 		}else {
 			return "Account didn't create, Email id already exists";
 		}
