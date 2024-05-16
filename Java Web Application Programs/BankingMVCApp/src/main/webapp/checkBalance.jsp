@@ -8,5 +8,7 @@
 </head>
 <body>
 <h2>Customer ${sessionScope.name} your balance is ${sessionScope.amount}</h2>
+<br/>
+<a href="customerhome.jsp">Back</a>
 </body>
 </html>

@@ -1,11 +1,17 @@
 package com.ebank.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ebank.bean.Account;
+import com.ebank.service.AccountService;
 
 /**
  * Servlet implementation class AccountDepositeController
@@ -34,8 +40,18 @@ public class AccountDepositeController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		PrintWriter pw  = response.getWriter();
+		response.setContentType("text/html");
+		String emailid = request.getParameter("emailid");
+		float amount = Float.parseFloat(request.getParameter("amount"));
+		AccountService as = new AccountService();
+		Account account = new Account();
+		account.setEmailid(emailid);
+		account.setAmount(amount);
+		String result = as.deposite(account);
+		pw.println(result);
+		RequestDispatcher rd = request.getRequestDispatcher("deposite.jsp");
+		rd.include(request, response);
 	}
 
 }
