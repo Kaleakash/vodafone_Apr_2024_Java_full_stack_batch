@@ -14,25 +14,22 @@ import com.ebank.bean.Login;
 import com.ebank.service.LoginService;
 
 /**
- * Servlet implementation class LoginSignInController
+ * Servlet implementation class LoginSignUpController
  */
-@WebServlet("/LoginSignInController")
-public class LoginSignInController extends HttpServlet {
+@WebServlet("/LoginSignUpController")
+public class LoginSignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginSignInController() {
+    public LoginSignUpController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	}
 
 
@@ -42,25 +39,19 @@ public class LoginSignInController extends HttpServlet {
 		String password = request.getParameter("password");
 		String typeofuser = request.getParameter("typeofuser");
 		response.setContentType("text/html");
+		
 		Login ll = new Login();
 		ll.setEmailid(emailid);
 		ll.setPassword(password);
 		ll.setTypeofuser(typeofuser);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("signUp.jsp");
 		
 		LoginService ls = new LoginService();
 		
-		String result = ls.signIn(ll);
-		
-		if(result.equalsIgnoreCase("successfully login by customer")) {
-			response.sendRedirect("customerhome.jsp");		// output wise equal to forward 
-		}else if(result.equalsIgnoreCase("successfully login by manager")) {
-			response.sendRedirect("managerhome.jsp");
-		}else {
-			pw.println("Invalid emailid or password");
-			rd.include(request, response);
-		}
+		String result = ls.signUp(ll);
+		pw.println(result);
+		rd.include(request, response);
 		
 	}
 

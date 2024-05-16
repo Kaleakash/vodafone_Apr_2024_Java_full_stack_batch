@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>My E-Banking Application!</h2>
-<form action="LoginSignInController" method="post">
+<h2>Account Create</h2>
+<form action="LoginSignUpController" method="post">
 <label>EmailId</label>
 <input type="email" name="emailid"/><br/>
 <label>Password</label>
@@ -16,10 +16,10 @@
 <label>TypeOfUser</label>
 <input type="radio" name="typeofuser" value="Manager">Manager
 <input type="radio" name="typeofuser" value="Customer">Customer<br/>
-<input type="submit" value="SignIn"/>
+<input type="submit" value="SignUp"/>
 <input type="reset" value="reset"/>
 </form>
 <br/>
-<a href="signUp.jsp">SignUp Page</a>
+<a href="index.jsp">Login Page</a>
 </body>
 </html>
