@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>Customer ${sessionScope.name} your balance is ${sessionScope.amount}</h2>
 </body>
 </html>
