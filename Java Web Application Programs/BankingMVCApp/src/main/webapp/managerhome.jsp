@@ -8,10 +8,6 @@
 </head>
 <body>
 <h2>Welcome to Customer Home Page ${sessionScope.name}</h2>
-<%
-Object obj = session.getAttribute("name");
-String name = (String)obj;
-out.println("Welcome manager "+name);
-%>
+<a href="AccountViewController">View All Accounts</a>
 </body>
 </html>

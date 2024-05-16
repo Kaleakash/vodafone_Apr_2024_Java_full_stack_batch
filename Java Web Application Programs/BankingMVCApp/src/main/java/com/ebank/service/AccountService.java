@@ -1,5 +1,7 @@
 package com.ebank.service;
 
+import java.util.List;
+
 import com.ebank.bean.Account;
 import com.ebank.dao.AccountDao;
 
@@ -24,5 +26,9 @@ public class AccountService {
 	
 	public float checkBalance(String emailid) {
 		return ad.checkBalance(emailid);
+	}
+	
+	public List<Account> viewAllAccounts() {
+		return ad.viewAllAccounts();
 	}
 }

@@ -3,6 +3,8 @@ package com.ebank.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ebank.bean.Account;
 import com.ebank.resource.DbResource;
@@ -66,5 +68,25 @@ public class AccountDao {
 			System.err.println(e);
 		}
 		return 0;
+	}
+	
+	public List<Account> viewAllAccounts() {
+	List<Account> listOfAccount = new ArrayList<Account>();
+		try {
+			Connection con = DbResource.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement("select * from account");
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Account acc = new Account();
+				acc.setAccno(rs.getInt(1));
+				acc.setEmailid(rs.getString(2));
+				acc.setAmount(rs.getFloat(3));
+				listOfAccount.add(acc);
+			}
+		
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return listOfAccount;
 	}
 }
