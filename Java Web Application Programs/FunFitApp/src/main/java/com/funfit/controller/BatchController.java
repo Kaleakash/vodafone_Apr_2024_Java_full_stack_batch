@@ -33,7 +33,12 @@ public class BatchController extends HttpServlet {
 		List<Batch> listOfBatch = bs.viewAllBatch();
 		HttpSession hs = request.getSession();
 		hs.setAttribute("batches", listOfBatch);
+		String flagValue = request.getParameter("flag");
+		if(flagValue.equals("2")) {
 		response.sendRedirect("addParticipants.jsp");
+		}else {
+			response.sendRedirect("viewBatches.jsp");
+		}
 	}
 	// store or insert 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

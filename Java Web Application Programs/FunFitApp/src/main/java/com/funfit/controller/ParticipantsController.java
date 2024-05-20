@@ -32,6 +32,7 @@ public class ParticipantsController extends HttpServlet {
 		HttpSession hs = request.getSession();
 		List<Participants> listOfParticipants = ps.viewAllParticipants();
 		hs.setAttribute("participants", listOfParticipants);
+		response.sendRedirect("viewParticipants.jsp");
 	}
 
 
