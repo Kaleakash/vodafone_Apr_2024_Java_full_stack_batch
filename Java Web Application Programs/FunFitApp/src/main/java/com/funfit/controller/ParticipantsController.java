@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,11 +37,12 @@ public class ParticipantsController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
 		String fname = request.getParameter("fname");
 		int age  = Integer.parseInt(request.getParameter("age"));
 		String phonenumber = request.getParameter("phonenumber");
 		int bid = Integer.parseInt(request.getParameter("bid"));
-		
+		RequestDispatcher rd = request.getRequestDispatcher("addParticipants.jsp");
 		Participants pp = new Participants();
 		pp.setFname(fname);
 		pp.setAge(age);
@@ -49,6 +51,7 @@ public class ParticipantsController extends HttpServlet {
 		
 		String result = ps.addParticipants(pp);
 		pw.print(result);
+		rd.include(request, response);
 	}
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

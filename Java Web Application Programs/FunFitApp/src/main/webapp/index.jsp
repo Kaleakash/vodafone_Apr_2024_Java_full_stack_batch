@@ -9,5 +9,6 @@
 <body>
 <h2>Fun Fit Application!</h2>
 <a href="addBatch.jsp">Add Batch</a> |
+<a href="BatchController">Add Participants</a> |
 </body>
 </html>
