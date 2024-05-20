@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,13 +37,16 @@ public class BatchController extends HttpServlet {
 	// store or insert 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
 		String typeofbatch = request.getParameter("typeofbatch");
 		String time = request.getParameter("time");
+		RequestDispatcher rd = request.getRequestDispatcher("addBatch.jsp");
 		Batch bb = new Batch();
 		bb.setTypeofbatch(typeofbatch);
 		bb.setTime(time);
 		String result = bs.addBatch(bb);
 		pw.println(result);
+		rd.include(request, response);
 	}
 	
 	@Override
