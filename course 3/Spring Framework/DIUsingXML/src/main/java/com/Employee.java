@@ -4,7 +4,7 @@ public class Employee {
 private int id;
 private String name;
 private float salary;
-
+private Address add;				// has a relationship 
 	public Employee() {
 		System.out.println("object created...with empty");
 	}
@@ -17,13 +17,21 @@ private float salary;
 		System.out.println("object created...with parameter");
 	}
 
+	public Address getAdd() {
+		return add;
+	}
+
+	public void setAdd(Address add) {
+		this.add = add;
+	}
+
 	public void display() {
 		System.out.println("Employee class method");
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", add=" + add + "]";
 	}
 
 	public int getId() {

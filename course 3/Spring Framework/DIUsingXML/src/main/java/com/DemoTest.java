@@ -26,17 +26,23 @@ public class DemoTest {
 //		Employee employee4 = (Employee)obj.getBean("emp2"); // pull the object from container 
 //		employee4.display();
 		
-		Employee employee5 = (Employee)obj.getBean("emp1");	// singleton : default or empty constructor  
-		System.out.println(employee5);
+//		Employee employee5 = (Employee)obj.getBean("emp1");	// singleton : default or empty constructor  
+//		System.out.println(employee5);
+//		
+//		Employee employee6 = (Employee)obj.getBean("emp2");	// prototype : default or empty constructor 
+//		System.out.println(employee6);
+//		
+//		Employee employee7 = (Employee)obj.getBean("emp3");	// singleton : parameter constructor 
+//		System.out.println(employee7);
+//		
+//		Employee employee8 = (Employee)obj.getBean("emp4");	// singleton : parameter constructor 
+//		System.out.println(employee8);
 		
-		Employee employee6 = (Employee)obj.getBean("emp2");	// prototype : default or empty constructor 
-		System.out.println(employee6);
+		Address add1 = (Address)obj.getBean("address");
+		System.out.println(add1);
 		
-		Employee employee7 = (Employee)obj.getBean("emp3");	// singleton : parameter constructor 
-		System.out.println(employee7);
-		
-		Employee employee8 = (Employee)obj.getBean("emp4");	// singleton : parameter constructor 
-		System.out.println(employee8);
+		Employee employee = (Employee)obj.getBean("employee");
+		System.out.println(employee);
 	}
 
 }
