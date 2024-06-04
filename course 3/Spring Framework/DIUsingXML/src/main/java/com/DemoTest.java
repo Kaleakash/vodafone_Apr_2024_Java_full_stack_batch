@@ -38,8 +38,8 @@ public class DemoTest {
 //		Employee employee8 = (Employee)obj.getBean("emp4");	// singleton : parameter constructor 
 //		System.out.println(employee8);
 		
-		Address add1 = (Address)obj.getBean("address");
-		System.out.println(add1);
+//		Address add1 = (Address)obj.getBean("address");
+//		System.out.println(add1);
 		
 		Employee employee = (Employee)obj.getBean("employee");
 		System.out.println(employee);
