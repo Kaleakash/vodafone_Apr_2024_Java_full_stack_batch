@@ -14,18 +14,26 @@ public class DemoTest {
 		Resource res  = new ClassPathResource("beans.xml"); // load the xml file 
 		BeanFactory obj = new XmlBeanFactory(res);   // get beanfactory interface reference. 
 		
-		Employee employee1 = (Employee)obj.getBean("emp1"); // pull the object from container 
-		employee1.display();
+//		Employee employee1 = (Employee)obj.getBean("emp1"); // pull the object from container 
+//		employee1.display();
+//		
+//		Employee employee2 = (Employee)obj.getBean("emp1"); // pull the object from container 
+//		employee2.display();
+//		
+//		Employee employee3 = (Employee)obj.getBean("emp2"); // pull the object from container 
+//		employee3.display();
+//		
+//		Employee employee4 = (Employee)obj.getBean("emp2"); // pull the object from container 
+//		employee4.display();
 		
-		Employee employee2 = (Employee)obj.getBean("emp1"); // pull the object from container 
-		employee2.display();
+		Employee employee5 = (Employee)obj.getBean("emp1");	// singleton : default or empty constructor  
+		System.out.println(employee5);
 		
-		Employee employee3 = (Employee)obj.getBean("emp2"); // pull the object from container 
-		employee3.display();
+		Employee employee6 = (Employee)obj.getBean("emp2");	// prototype : default or empty constructor 
+		System.out.println(employee6);
 		
-		Employee employee4 = (Employee)obj.getBean("emp2"); // pull the object from container 
-		employee4.display();
-		
+		Employee employee7 = (Employee)obj.getBean("emp3");	// singleton : parameter constructor 
+		System.out.println(employee7);
 	}
 
 }
