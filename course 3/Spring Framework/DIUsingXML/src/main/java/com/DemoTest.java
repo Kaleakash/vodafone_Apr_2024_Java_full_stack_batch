@@ -34,6 +34,9 @@ public class DemoTest {
 		
 		Employee employee7 = (Employee)obj.getBean("emp3");	// singleton : parameter constructor 
 		System.out.println(employee7);
+		
+		Employee employee8 = (Employee)obj.getBean("emp4");	// singleton : parameter constructor 
+		System.out.println(employee8);
 	}
 
 }
