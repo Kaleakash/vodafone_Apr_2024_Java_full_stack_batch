@@ -44,8 +44,8 @@ public class AccountDepositeController extends HttpServlet {
 		response.setContentType("text/html");
 		String emailid = request.getParameter("emailid");
 		float amount = Float.parseFloat(request.getParameter("amount"));
-		AccountService as = new AccountService();
-		Account account = new Account();
+	AccountService as = new AccountService();
+	Account account = new Account();
 		account.setEmailid(emailid);
 		account.setAmount(amount);
 		String result = as.deposite(account);
