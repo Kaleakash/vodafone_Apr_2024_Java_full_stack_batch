@@ -29,6 +29,25 @@ public class ProductDao {
 		}
 	}
 	
+	
+	public int updateProduct(Product product) {
+		try {
+	return jdbcTemplate.update("update product set price = ? where pid=?",product.getPrice(),product.getPid());
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	public int deleteProduct(int pid) {
+		try {
+	return jdbcTemplate.update("delete from product where pid=?",pid);
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
 //	@Autowired
 //	DataSource ds;		// before spring framework we were searching database connection using jndi lookup 
 //						// in spring this information present in beans.xml file with less configuration 

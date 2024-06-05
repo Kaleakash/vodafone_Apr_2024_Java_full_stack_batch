@@ -17,13 +17,23 @@ public class DemoTest {
 
 	Product p1 = (Product)ac.getBean("product");
 	
-	p1.setPid(106);
-	p1.setPname("Hard Disk");
-	p1.setPrice(25000);
+	// insert Query 
+//	p1.setPid(106);
+//	p1.setPname("Hard Disk");
+//	p1.setPrice(25000);
+//
+//	String result1 = ps.storeProduct(p1);
+//	System.out.println(result1);
 
-	String result1 = ps.storeProduct(p1);
-	System.out.println(result1);
-
+	// update query 
+//	p1.setPid(106);
+//	p1.setPrice(26000);
+//	String result = ps.updateProduct(p1);
+//	System.out.println(result);
+	
+	// delete query 
+	String result = ps.deleteProduct(101);
+	System.out.println(result);
 	}
 
 }

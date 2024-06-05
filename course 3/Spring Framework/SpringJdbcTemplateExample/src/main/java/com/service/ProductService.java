@@ -25,4 +25,21 @@ public class ProductService {			// id is productService
 	}
 	
 
+	public String updateProduct(Product product) {
+		if(productDao.updateProduct(product)>0) {
+			return "Record updated successfully";
+		}else {
+			return "Record not present";
+		}
+		
+	}
+	
+	public String deleteProduct(int pid) {
+		if(productDao.deleteProduct(pid)>0) {
+			return "Record deleted successfully";
+		}else {
+			return "Record not present";
+		}
+		
+	}
 }
