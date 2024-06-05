@@ -24,7 +24,5 @@ public class ProductService {			// id is productService
 		}
 	}
 	
-	public List<Product> findAllProduct() {
-		return productDao.findAllProducts();
-	}
+
 }

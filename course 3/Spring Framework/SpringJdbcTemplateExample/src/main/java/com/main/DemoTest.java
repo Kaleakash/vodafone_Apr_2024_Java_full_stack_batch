@@ -13,31 +13,17 @@ public class DemoTest {
 	public static void main(String[] args) {
 	ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 	
-	ProductService ps = (ProductService)ac.getBean("productService");
-	
-//	List<Product> listOfProduct = ps.findAllProduct();
-//	System.out.println("all products");
-//	for(Product p : listOfProduct) {
-//		System.out.println(p);
-//	}
+	ProductService ps = (ProductService)ac.getBean("productService");	
+
 	Product p1 = (Product)ac.getBean("product");
 	
-	Product p2 = (Product)ac.getBean("product");
-	
-	p1.setPid(104);
-	p1.setPname("Pen Drive");
-	p1.setPrice(1600);
-	
-	p2.setPid(105);
-	p2.setPname("Mobile");
-	p2.setPrice(45000);
-	
-	//System.out.println(p1);
-	//System.out.println(p2);
+	p1.setPid(106);
+	p1.setPname("Hard Disk");
+	p1.setPrice(25000);
+
 	String result1 = ps.storeProduct(p1);
-	String result2 = ps.storeProduct(p2);
 	System.out.println(result1);
-	System.out.println(result2);
+
 	}
 
 }
