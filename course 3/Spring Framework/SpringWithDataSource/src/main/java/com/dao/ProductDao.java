@@ -20,6 +20,12 @@ public class ProductDao {
 	DataSource ds;		// before spring framework we were searching database connection using jndi lookup 
 						// in spring this information present in beans.xml file with less configuration 
 	
+//	private final DataSource ds;
+//	
+//	public ProductDao(DataSource ds) {
+//		// TODO Auto-generated constructor stub
+//		this.ds=ds;
+//	}
 	public int storeProduct(Product product) {
 		try {
 			Connection con = ds.getConnection();
