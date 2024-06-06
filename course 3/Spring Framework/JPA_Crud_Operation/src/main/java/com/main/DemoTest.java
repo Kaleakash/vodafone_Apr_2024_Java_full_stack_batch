@@ -41,16 +41,24 @@ public class DemoTest {
 	
 	
 	// update Query 
-		Employee emp1 = manager.find(Employee.class, 100);	// select * from employee where id  = 101;
-		if(emp1==null) {
-			System.out.println("No record present");
-		}else {
-			tran.begin();
-			emp1.setSalary(35000);
-			manager.merge(emp1);				// update query 
-			tran.commit();
-			System.out.println("Record updated successfully");
-		}
+//		Employee emp1 = manager.find(Employee.class, 100);	// select * from employee where id  = 101;
+//		if(emp1==null) {
+//			System.out.println("No record present");
+//		}else {
+//			tran.begin();
+//			emp1.setSalary(35000);
+//			manager.merge(emp1);				// update query 
+//			tran.commit();
+//			System.out.println("Record updated successfully");
+//		}
+	
+	// select query with id condition 
+	Employee emp1 = manager.find(Employee.class, 102);	// select * from employee where id  = 101;
+	if(emp1==null) {
+		System.out.println("No record present");
+	}else {
+		System.out.println(emp1);
+	}
 	}
 
 }
