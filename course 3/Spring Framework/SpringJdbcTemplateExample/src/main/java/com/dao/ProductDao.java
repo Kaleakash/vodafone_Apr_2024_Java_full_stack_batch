@@ -78,6 +78,7 @@ public class ProductDao {
 	}
 }
 
+
 class MyRowMapper implements RowMapper<Product>{
 	@Override
 	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {	// this method responsible to convert each record to object
