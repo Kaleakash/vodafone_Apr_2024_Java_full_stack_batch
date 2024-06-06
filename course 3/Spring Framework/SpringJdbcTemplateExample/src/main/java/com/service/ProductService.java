@@ -12,8 +12,15 @@ import com.dao.ProductDao;
 @Service
 public class ProductService {			// id is productService
 
-	@Autowired
-	ProductDao productDao;
+//	@Autowired
+//	ProductDao productDao;
+	
+	final ProductDao productDao;
+	
+	
+	ProductService(ProductDao productDao){
+		this.productDao=productDao;
+	}
 	
 	public String storeProduct(Product product) {
 		if(product.getPrice()<1000) {
