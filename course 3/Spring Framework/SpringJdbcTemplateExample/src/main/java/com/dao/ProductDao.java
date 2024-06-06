@@ -3,6 +3,7 @@ package com.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.bean.Product;
@@ -58,47 +60,33 @@ public class ProductDao {
 		}
 	}
 	
-	
-//	@Autowired
-//	DataSource ds;		// before spring framework we were searching database connection using jndi lookup 
-//						// in spring this information present in beans.xml file with less configuration 
-//	
-////	private final DataSource ds;
-////	
-////	public ProductDao(DataSource ds) {
-////		// TODO Auto-generated constructor stub
-////		this.ds=ds;
-////	}
-//	public int storeProduct(Product product) {
-//		try {
-//			Connection con = ds.getConnection();
-//			PreparedStatement pstmt = con.prepareStatement("insert into product values(?,?,?)");
-//			pstmt.setInt(1, product.getPid());
-//			pstmt.setString(2, product.getPname());
-//			pstmt.setFloat(3, product.getPrice());
-//			return pstmt.executeUpdate();
-//		} catch (Exception e) {
-//			System.err.println(e);
-//			return 0;
-//		}
-//	}
-//	
-//	public List<Product> findAllProducts() {
-//		List<Product> listOfProduct = new ArrayList<Product>();
-//		try {
-//			Connection con = ds.getConnection();
-//			PreparedStatement pstmt = con.prepareStatement("select * from product");
-//			ResultSet rs = pstmt.executeQuery();
-//			while(rs.next()) {
-//				Product product = new Product();
-//				product.setPid(rs.getInt(1));
-//				product.setPname(rs.getString(2));
-//				product.setPrice(rs.getFloat(3));
-//				listOfProduct.add(product);
-//			}
-//		} catch (Exception e) {
-//			System.err.println(e);
-//		}
-//		return listOfProduct;
-//	}
+	public List<Product> findAllProductByProduct() {
+		try {
+		return jdbcTemplate.query("select * from product", new MyRowMapper());
+		} catch (Exception e) {
+			System.err.println(e);
+			return null;
+		}
+	}
+	public  List<Product> findAllProductByProductByPrice(float price) {
+		try {
+		return jdbcTemplate.query("select * from product where price >?",new MyRowMapper(),price);
+		} catch (Exception e) {
+			System.err.println(e);
+			return null;
+		}
+	}
 }
+
+class MyRowMapper implements RowMapper<Product>{
+	@Override
+	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {	// this method responsible to convert each record to object
+		Product p = new Product();
+		p.setPid(rs.getInt(1));
+		p.setPname(rs.getString(2));
+		p.setPrice(rs.getFloat(3));
+		return p;
+	}
+}
+
+

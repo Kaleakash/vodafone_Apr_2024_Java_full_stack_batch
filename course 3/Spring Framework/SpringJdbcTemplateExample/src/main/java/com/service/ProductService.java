@@ -47,4 +47,13 @@ public class ProductService {			// id is productService
 	public List<Map<String, Object>> findAllProductByMap(){
 		return productDao.findAllProductByMap();
 	}
+	
+	public List<Product> findProductByProduct(){
+		return productDao.findAllProductByProduct();
+	}
+	
+	
+	public List<Product> findProductByPrice(float price){
+		return productDao.findAllProductByProductByPrice(price);
+	}
 }

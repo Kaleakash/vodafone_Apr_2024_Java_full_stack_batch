@@ -38,12 +38,28 @@ public class DemoTest {
 //	System.out.println(result);
 	
 	// find all record using list of map 
-	List<Map<String, Object>> listOfProduct = ps.findAllProductByMap();
-	Iterator<Map<String,Object>> li = listOfProduct.iterator();
-	while(li.hasNext()) {
-		Map<String, Object> mm = li.next();	// each record as map reference. 
-		System.out.println(mm);
-	}
-	}
+//	List<Map<String, Object>> listOfProduct = ps.findAllProductByMap();
+//	Iterator<Map<String,Object>> li = listOfProduct.iterator();
+//	while(li.hasNext()) {
+//		Map<String, Object> mm = li.next();	// each record as map reference. 
+//		System.out.println(mm);
+//	}
+	
+	// find all Product using list of product 
+//	List<Product> listOfProduct = ps.findProductByProduct();
+//	Iterator<Product> li = listOfProduct.iterator();
+//	while(li.hasNext()) {
+//		Product p = li.next();
+//		System.out.println(p.getPid()+" "+p.getPname());
+//	}
+//	}
 
+	// find all product using list of product with condition as price 
+	List<Product> listOfProduct = ps.findProductByPrice(30000);
+	Iterator<Product> li = listOfProduct.iterator();
+	while(li.hasNext()) {
+		Product p = li.next();
+		System.out.println(p.getPid()+" "+p.getPname()+" "+p.getPrice());
+	}
+	}
 }
