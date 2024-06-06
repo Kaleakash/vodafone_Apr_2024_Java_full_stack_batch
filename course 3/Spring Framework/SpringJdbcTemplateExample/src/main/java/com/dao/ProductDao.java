@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -47,6 +48,16 @@ public class ProductDao {
 			return 0;
 		}
 	}
+	
+	public List<Map<String, Object>> findAllProductByMap() {
+		try {
+			return jdbcTemplate.queryForList("select * from product");
+		} catch (Exception e) {
+			System.err.println(e);
+			return null;
+		}
+	}
+	
 	
 //	@Autowired
 //	DataSource ds;		// before spring framework we were searching database connection using jndi lookup 

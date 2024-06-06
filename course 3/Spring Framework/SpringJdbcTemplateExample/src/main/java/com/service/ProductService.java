@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,9 @@ public class ProductService {			// id is productService
 			return "Record not present";
 		}
 		
+	}
+	
+	public List<Map<String, Object>> findAllProductByMap(){
+		return productDao.findAllProductByMap();
 	}
 }

@@ -1,6 +1,8 @@
 package com.main;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -32,8 +34,16 @@ public class DemoTest {
 //	System.out.println(result);
 	
 	// delete query 
-	String result = ps.deleteProduct(101);
-	System.out.println(result);
+//	String result = ps.deleteProduct(101);
+//	System.out.println(result);
+	
+	// find all record using list of map 
+	List<Map<String, Object>> listOfProduct = ps.findAllProductByMap();
+	Iterator<Map<String,Object>> li = listOfProduct.iterator();
+	while(li.hasNext()) {
+		Map<String, Object> mm = li.next();	// each record as map reference. 
+		System.out.println(mm);
+	}
 	}
 
 }
