@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="hello">Click Here1</a> |
-<a href="hi">Click Here1</a> |
-<a href="login.jsp">Login Page</a>
+<h2>Failure try once again!</h2>
+<%@include file="login.jsp" %>
+<%
+//response.sendRedirect("hello");
+%>
 </body>
 </html>
