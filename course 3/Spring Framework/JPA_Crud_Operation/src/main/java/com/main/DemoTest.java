@@ -88,17 +88,47 @@ public class DemoTest {
 	//qry.setParameter(2, 100);
 	
 	// value dynamic using label 
-	Query qry=	manager.createQuery("select emp from Employee emp where emp.id=:empid");
-	qry.setParameter("empid", 100);
+//	Query qry=	manager.createQuery("select emp from Employee emp where emp.id=:empid");
+//	int eid=100;		// we can take through keyboard using Scanner class. 
+//	qry.setParameter("empid", eid);
+//	
+//	List<Employee> listOfEmp = qry.getResultList();
+//	//System.out.println("Number of records "+listOfEmp.size());
+//	Iterator<Employee> li = listOfEmp.iterator();
+//	while(li.hasNext()) {
+//		Employee emp = li.next();
+//		System.out.println(emp);
+//	}
 	
-	List<Employee> listOfEmp = qry.getResultList();
-	//System.out.println("Number of records "+listOfEmp.size());
-	Iterator<Employee> li = listOfEmp.iterator();
-	while(li.hasNext()) {
-		Employee emp = li.next();
-		System.out.println(emp);
-	}
+	// retrieve partial objects like only id 
+//	Query qry=	manager.createQuery("select emp.id from Employee emp");
+//	List<Integer> listOfEmp = qry.getResultList();
+//	Iterator<Integer> li = listOfEmp.iterator();
+//	while(li.hasNext()) {
+//		int id = li.next();
+//		System.out.println(id);
+//	}
 	
+	
+	// retrieve partial objects like only name 
+//		Query qry=	manager.createQuery("select emp.name from Employee emp");
+//		List<String> listOfEmp = qry.getResultList();
+//		Iterator<String> li = listOfEmp.iterator();
+//		while(li.hasNext()) {
+//			String name = li.next();
+//			System.out.println(name);
+//		}
+		
+	// retrieve partial objects but more than one like only name,salary 
+	// same code apply for join query 
+		Query qry=	manager.createQuery("select emp.name,emp.salary from Employee emp");
+		List<Object[]> listOfEmp = qry.getResultList();
+		Iterator<Object[]> li = listOfEmp.iterator();
+		while(li.hasNext()) {
+			Object obj[]=li.next();
+			System.out.println("Name is  "+obj[0] +" Salary is "+obj[1]);
+		}
+		
 	}
 
 }
