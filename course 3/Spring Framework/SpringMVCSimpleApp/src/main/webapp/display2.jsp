@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="hello">Click Here1</a> |
-<a href="hi">Click Here1</a>
+<h2>Welcome to Spring MVC using hi path!</h2>
 </body>
 </html>

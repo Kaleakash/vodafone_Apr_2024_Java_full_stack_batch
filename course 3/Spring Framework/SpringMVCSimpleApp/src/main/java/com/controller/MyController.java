@@ -17,4 +17,14 @@ public class MyController {
 		mav.setViewName("display1.jsp");
 		return mav;
 	}
+	
+	// hi is url mapping like map our request 
+		@RequestMapping(value = "hi",method = RequestMethod.GET)
+		public ModelAndView sayHi() {
+			// coding 
+			System.out.println("I Came here!");
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("display2.jsp");
+			return mav;
+		}
 }
