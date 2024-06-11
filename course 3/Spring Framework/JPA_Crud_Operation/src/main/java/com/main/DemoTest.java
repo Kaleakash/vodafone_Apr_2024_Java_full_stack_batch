@@ -1,9 +1,13 @@
 package com.main;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.bean.Employee;
 
@@ -17,6 +21,7 @@ public class DemoTest {
 	// Entity Manager factory is like Connection in JDBC. 
 	EntityManager manager = emf.createEntityManager(); // it is like a Statement or PreparedStatement. 
 	EntityTransaction tran = manager.getTransaction();		// get transaction object. 
+	
 	// insert record 
 //	Employee emp1 = new Employee();
 //	emp1.setId(102);
@@ -28,6 +33,7 @@ public class DemoTest {
 //	tran.commit();
 //	System.out.println("Record inserted...");
 	
+	
 	// Delete Query 
 //	Employee emp1 = manager.find(Employee.class, 100);	// select * from employee where id  = 101;
 //	if(emp1==null) {
@@ -38,6 +44,7 @@ public class DemoTest {
 //		tran.commit();
 //		System.out.println("Record deleted successfully");
 //	}
+	
 	
 	
 	// update Query 
@@ -53,11 +60,21 @@ public class DemoTest {
 //		}
 	
 	// select query with id condition 
-	Employee emp1 = manager.find(Employee.class, 102);	// select * from employee where id  = 101;
-	if(emp1==null) {
-		System.out.println("No record present");
-	}else {
-		System.out.println(emp1);
+//	Employee emp1 = manager.find(Employee.class, 102);	// select * from employee where id  = 101;
+//	if(emp1==null) {
+//		System.out.println("No record present");
+//	}else {
+//		System.out.println(emp1);
+//	}
+	
+	// retrieve all records from database using JPA
+	Query qry=	manager.createQuery("select emp from Employee emp");
+	List<Employee> listOfEmp = qry.getResultList();
+	//System.out.println("Number of records "+listOfEmp.size());
+	Iterator<Employee> li = listOfEmp.iterator();
+	while(li.hasNext()) {
+		Employee emp = li.next();
+		System.out.println(emp);
 	}
 	}
 
