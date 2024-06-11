@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Failure try once again! ${requestScope.msg}</h2>
+<h2>Failure try once again! ${requestScope.msg} ${sessionScope.msg1}</h2>
 <%@include file="login.jsp" %>
 <%
 //response.sendRedirect("hello");
