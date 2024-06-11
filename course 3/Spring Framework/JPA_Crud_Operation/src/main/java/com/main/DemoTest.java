@@ -68,7 +68,29 @@ public class DemoTest {
 //	}
 	
 	// retrieve all records from database using JPA
-	Query qry=	manager.createQuery("select emp from Employee emp");
+//	Query qry=	manager.createQuery("select emp from Employee emp");
+//	List<Employee> listOfEmp = qry.getResultList();
+//	//System.out.println("Number of records "+listOfEmp.size());
+//	Iterator<Employee> li = listOfEmp.iterator();
+//	while(li.hasNext()) {
+//		Employee emp = li.next();
+//		System.out.println(emp);
+//	}
+	
+	// retrieve all records from database using where clause
+	
+	// value static or fixed 
+	//Query qry=	manager.createQuery("select emp from Employee emp where emp.id=100");
+	//Query qry=	manager.createQuery("select emp from Employee emp where emp.salary>36000");
+	
+	// value dynamic using ? 
+	//Query qry=	manager.createQuery("select emp from Employee emp where emp.id=?2");
+	//qry.setParameter(2, 100);
+	
+	// value dynamic using label 
+	Query qry=	manager.createQuery("select emp from Employee emp where emp.id=:empid");
+	qry.setParameter("empid", 100);
+	
 	List<Employee> listOfEmp = qry.getResultList();
 	//System.out.println("Number of records "+listOfEmp.size());
 	Iterator<Employee> li = listOfEmp.iterator();
@@ -76,6 +98,7 @@ public class DemoTest {
 		Employee emp = li.next();
 		System.out.println(emp);
 	}
+	
 	}
 
 }
