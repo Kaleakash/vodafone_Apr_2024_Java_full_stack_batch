@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>Successfully login</h3>
+<h3>Successfully login ${requestScope.msg}</h3>
 </body>
 </html>
