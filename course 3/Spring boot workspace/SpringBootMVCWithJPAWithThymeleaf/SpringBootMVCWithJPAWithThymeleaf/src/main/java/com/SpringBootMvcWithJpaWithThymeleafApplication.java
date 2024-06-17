@@ -12,6 +12,7 @@ public class SpringBootMvcWithJpaWithThymeleafApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootMvcWithJpaWithThymeleafApplication.class, args);
+		System.out.println("spring boot up!");
 	}
 
 }
