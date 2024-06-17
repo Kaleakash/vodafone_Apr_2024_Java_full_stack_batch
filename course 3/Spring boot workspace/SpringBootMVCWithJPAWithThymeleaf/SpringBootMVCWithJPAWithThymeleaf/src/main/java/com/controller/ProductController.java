@@ -31,13 +31,14 @@ public class ProductController {
 	// http://localhost:9191/add
 	
 	@RequestMapping(value = "add",method = RequestMethod.GET)
-	public String addProductPage() {
+	public String addProductPage(Product product,Model model) {	// di for product and model 
 		// coding
+		model.addAttribute("pp", product);		// product object stored in model scope.
 		return "addProduct";			//open addProduct.html page 
 	}
 	
 	@RequestMapping(value = "addProduct",method = RequestMethod.POST)
-	public String addProductInDb(HttpServletRequest req, Product product,Model model) { //DI
+	public String addProductUsingHttpServlet(HttpServletRequest req, Product product,Model model) { //DI
 		
 		int id = Integer.parseInt(req.getParameter("id"));
 		String pname= req.getParameter("pname");
@@ -48,12 +49,31 @@ public class ProductController {
 		product.setPrice(price);
 		
 		String result = productService.storeProduct(product);
-		model.addAttribute("msg", result);			// req.setAttribute("msg",result);
+			model.addAttribute("msg", result);			// req.setAttribute("msg",result);
 		System.out.println(result);
 		
 		return "addProduct";
 	}
 	
+	
+	@RequestMapping(value = "addProductInDb",method = RequestMethod.POST)
+	public String addProductInDbUsingThymeleafForm(Product product,Model model) { //DI
+		
+//		int id = Integer.parseInt(req.getParameter("id"));
+//		String pname= req.getParameter("pname");
+//		float price = Float.parseFloat(req.getParameter("price"));
+//		
+//		product.setId(id);
+//		product.setPname(pname);
+//		product.setPrice(price);
+		
+		String result = productService.storeProduct(product);
+		model.addAttribute("pp", product);   // store product object in model scope 
+			model.addAttribute("msg", result);			// req.setAttribute("msg",result);
+		System.out.println(result);
+		
+		return "addProduct";
+	}
 }
 
 
