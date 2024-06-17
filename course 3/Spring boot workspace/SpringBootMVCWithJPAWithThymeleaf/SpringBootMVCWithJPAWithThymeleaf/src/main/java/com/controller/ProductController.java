@@ -5,7 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bean.Product;
 import com.service.ProductService;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class ProductController {
@@ -32,6 +35,26 @@ public class ProductController {
 		return "addProduct";			//open addProduct.html page 
 	}
 	
+	@RequestMapping(value = "addProduct",method = RequestMethod.POST)
+	public String addProductInDb(HttpServletRequest req, Product product) { //DI
+		
+		int id = Integer.parseInt(req.getParameter("id"));
+		String pname= req.getParameter("pname");
+		float price = Float.parseFloat(req.getParameter("price"));
+		
+		product.setId(id);
+		product.setPname(pname);
+		product.setPrice(price);
+		
+		String result = productService.storeProduct(product);
+		
+		System.out.println(result);
+		
+		return "addProduct";
+	}
+	
 }
+
+
 
 
