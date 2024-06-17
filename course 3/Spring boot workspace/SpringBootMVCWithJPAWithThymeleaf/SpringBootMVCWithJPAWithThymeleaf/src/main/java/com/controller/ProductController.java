@@ -23,4 +23,15 @@ public class ProductController {
 		return "index";		// view resolver responsible to check the page inside folder. 
 		//return "welcome";
 	}
+	
+	// http://localhost:9191/add
+	
+	@RequestMapping(value = "add",method = RequestMethod.GET)
+	public String addProductPage() {
+		// coding
+		return "addProduct";			//open addProduct.html page 
+	}
+	
 }
+
+
