@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +52,7 @@ public class ProductController {
 		
 		String result = productService.storeProduct(product);
 			model.addAttribute("msg", result);			// req.setAttribute("msg",result);
+			model.addAttribute("pp", product);
 		System.out.println(result);
 		
 		return "addProduct";
@@ -74,7 +77,17 @@ public class ProductController {
 		
 		return "addProduct";
 	}
+	
+	@RequestMapping(value = "viewProduct",method = RequestMethod.GET)
+	public String viewProduct(Model model) {
+		List<Product> listOfProducts = productService.findAllProducts();
+		model.addAttribute("products", listOfProducts);
+		return "viewProduct";			// it render to viewProduct.html 
+	}
 }
+
+
+
 
 
 
