@@ -2,6 +2,7 @@ package com.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,7 +37,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "addProduct",method = RequestMethod.POST)
-	public String addProductInDb(HttpServletRequest req, Product product) { //DI
+	public String addProductInDb(HttpServletRequest req, Product product,Model model) { //DI
 		
 		int id = Integer.parseInt(req.getParameter("id"));
 		String pname= req.getParameter("pname");
@@ -47,7 +48,7 @@ public class ProductController {
 		product.setPrice(price);
 		
 		String result = productService.storeProduct(product);
-		
+		model.addAttribute("msg", result);			// req.setAttribute("msg",result);
 		System.out.println(result);
 		
 		return "addProduct";
