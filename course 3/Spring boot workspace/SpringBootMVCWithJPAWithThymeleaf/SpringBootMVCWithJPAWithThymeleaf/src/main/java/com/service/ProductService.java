@@ -31,6 +31,37 @@ public class ProductService {
 	public List<Product> findAllProducts() {
 		return productDao.findAll();
 	}
+	
+	public String deleteProduct(int pid) {
+		
+		//productDao.save(product);
+		
+		Optional<Product> result = productDao.findById(pid);
+		if(result.isPresent()) {
+			Product p = result.get();
+		productDao.delete(p);
+			return "Product deleted successfully";
+		}else {
+			
+			return "product not present";
+		}
+	}
+	
+	public String updateProduct(Product product) {
+		
+		//productDao.save(product);
+		
+		Optional<Product> result = productDao.findById(product.getId());
+		if(result.isPresent()) {
+			Product p = result.get();		// p hold old record 
+			p.setPrice(product.getPrice()); // update price	
+		productDao.saveAndFlush(p);
+			return "Product update successfully";
+		}else {
+			
+			return "product not present";
+		}
+	}
 }
 
 
