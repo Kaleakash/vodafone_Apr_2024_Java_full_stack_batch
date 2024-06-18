@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.Employee;
@@ -34,4 +36,17 @@ public class EmployeeController {
 		listOfEmp.add(emp3);
 		return listOfEmp;
 	}
+	
+	// http://localhost:9191/queryparam?name=Akash
+	@RequestMapping(value = "queryparam",method = RequestMethod.GET)
+	public String queryParam(@RequestParam("name") String fname) {
+		
+		return "Welcome user with query param "+fname;
+	}
+	
+	// http://localhost:9191/pathparam/akash
+		@RequestMapping(value = "pathparam/{name}",method = RequestMethod.GET)
+		public String pathParam(@PathVariable("name") String fname) {
+			return "Welcome user with path param "+fname;
+		}
 }
