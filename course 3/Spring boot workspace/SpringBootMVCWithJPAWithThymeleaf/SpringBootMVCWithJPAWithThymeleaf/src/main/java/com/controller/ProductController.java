@@ -84,6 +84,24 @@ public class ProductController {
 		model.addAttribute("products", listOfProducts);
 		return "viewProduct";			// it render to viewProduct.html 
 	}
+	
+	// to open deleteProduct.html 
+	@RequestMapping(value = "delete",method = RequestMethod.GET)
+	public String deleteProductPageOpen(Model model) {
+		List<Product> listOfProducts = productService.findAllProducts();
+		model.addAttribute("products", listOfProducts);
+		return "deleteProduct";
+	}
+	@RequestMapping(value = "deleteProduct",method = RequestMethod.GET)
+	public String deleteProduct(HttpServletRequest req, Model model) {
+		int pid = Integer.parseInt(req.getParameter("id"));
+		String result = productService.deleteProduct(pid);
+		List<Product> listOfProducts = productService.findAllProducts();
+		model.addAttribute("products", listOfProducts);
+		model.addAttribute("msg", result);
+		return "deleteProduct";
+	}
+	
 }
 
 
