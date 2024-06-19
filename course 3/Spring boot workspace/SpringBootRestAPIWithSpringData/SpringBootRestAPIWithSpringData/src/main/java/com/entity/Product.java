@@ -17,6 +17,13 @@ private int qty;
 @OneToMany
 @JoinColumn(name = "pid")    // link FK ie pid
 private List<Orders> listOfOrders;
+
+public List<Orders> getListOfOrders() {
+	return listOfOrders;
+}
+public void setListOfOrders(List<Orders> listOfOrders) {
+	this.listOfOrders = listOfOrders;
+}
 public int getPid() {
 	return pid;
 }
@@ -43,7 +50,8 @@ public void setQty(int qty) {
 }
 @Override
 public String toString() {
-	return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + ", qty=" + qty + "]";
+	return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + ", qty=" + qty + ", listOfOrders="
+			+ listOfOrders + "]";
 }
 
 }
