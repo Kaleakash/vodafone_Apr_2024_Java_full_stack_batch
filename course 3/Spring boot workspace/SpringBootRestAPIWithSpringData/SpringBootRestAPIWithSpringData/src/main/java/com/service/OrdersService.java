@@ -42,4 +42,8 @@ public class OrdersService {
 			return "Order didn't place";
 		}
 	}
+	
+	public Object[] viewOrders() {
+		return ordersRepository.vieworderinfo();
+	}
 }
