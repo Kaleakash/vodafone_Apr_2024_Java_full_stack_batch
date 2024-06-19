@@ -45,7 +45,7 @@ public class ProductService {
 		Optional<Product> result = productRepository.findById(product.getPid());
 		if(result.isPresent()) {
 			Product p = result.get();
-			p.setPrice(product.getQty());
+				p.setQty(product.getQty());
 			productRepository.saveAndFlush(p);		// update 
 			return "Product qty updated successfully";
 		}else {
@@ -67,7 +67,7 @@ public class ProductService {
 		Optional<Product> result = productRepository.findById(pid);
 		if(result.isPresent()) {
 			Product p = result.get();
-			return p.toString();   // return object in string format make sure toString method overrided 
+			return p.toString();   // return object in string format make sure toString method override
 		}else {
 			return "Product not present";
 		}
