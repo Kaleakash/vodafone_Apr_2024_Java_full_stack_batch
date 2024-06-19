@@ -38,6 +38,11 @@ public class ProductController {
 		return productService.findAllProduct();
 	}
 	
+	@GetMapping(value = "findbyid/{pid}")
+	public String searchProductById(@PathVariable("pid") int pid) {
+		return productService.searchProductById(pid);
+	}
+	
 	@PostMapping(value = "store",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeProduct(@RequestBody Product product) {
 		return productService.storeProduct(product);
@@ -45,9 +50,7 @@ public class ProductController {
 	
 	@DeleteMapping(value = "delete/{pid}")
 	public String deleteProduct(@PathVariable("pid") int pid) {
-		
-		return productService.deleteProductById(pid);
-				
+		return productService.deleteProductById(pid);		
 	}
 	
 	@PatchMapping(value = "updateprice",consumes = MediaType.APPLICATION_JSON_VALUE)
