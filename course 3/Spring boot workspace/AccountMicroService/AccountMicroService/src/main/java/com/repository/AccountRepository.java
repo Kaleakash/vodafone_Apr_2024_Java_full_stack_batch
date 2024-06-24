@@ -12,4 +12,7 @@ public interface AccountRepository extends JpaRepository<Account, Integer>{
 
 	@Query("select acc.amount from Account acc where acc.emailid = :emailid")
 	public float findBalance(@Param("emailid") String emailid);
+	
+	@Query("select acc.accno from Account acc where acc.emailid = :emailid")
+	public int findAccnumber(@Param("emailid") String emailid);
 }

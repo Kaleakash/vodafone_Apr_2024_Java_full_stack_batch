@@ -33,4 +33,14 @@ public class AccountController {
 	public String findBalanceByEmailId(@PathVariable("emailid") String emailid) {
 		return accountService.findBalanceEmailid(emailid);
 	}
+	
+	@GetMapping(value = "findaccno/{emailid}")
+	public int findAccounNumber(@PathVariable("emailid") String emailid) {
+		try {
+		return accountService.findAccno(emailid);
+		}catch(Exception e) {
+			System.err.println(e);
+			return -1;
+		}
+	}
 }

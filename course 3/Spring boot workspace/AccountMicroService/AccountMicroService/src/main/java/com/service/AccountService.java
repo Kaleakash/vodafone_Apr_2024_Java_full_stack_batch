@@ -36,4 +36,9 @@ public class AccountService {
 	public String findBalanceEmailid(String emailid) {
 		return "Your balance is "+accountRepository.findBalance(emailid);
 	}
+	
+	public int findAccno(String emailid) {
+		return accountRepository.findAccnumber(emailid);
+	}
+	
 }
