@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h2>Welcome to React JS application using Docker</h2>
+      <h2>Welcome to React JS application using Docker created by Akash Kale!</h2>
     </div>
   );
 }
