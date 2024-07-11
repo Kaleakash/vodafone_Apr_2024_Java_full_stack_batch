@@ -11,7 +11,7 @@ services:
       - 3307: 3306
   
   spring-boot-service:
-    build: ./backend-app/
+    build: ./backend-app/login-app/
     container_name: spring_boot_container
     ports:
       - 9090: 9090
