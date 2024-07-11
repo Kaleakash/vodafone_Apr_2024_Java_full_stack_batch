@@ -1,6 +1,5 @@
 version: '3.6'
 services:
-  
   mysql-service:
     image: mysql:8.0
     container_name: my_sql_container
@@ -8,12 +7,11 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=mydb
     ports:
-      - 3307: 3306
-  
+      - 3307:3306
   spring-boot-service:
     build: ./backend-app/login-app/
     container_name: spring_boot_container
     ports:
-      - 9090: 9090
+      - 9090:9090
     depends_on:
       - mysql-service
