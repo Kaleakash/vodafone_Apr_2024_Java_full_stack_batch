@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 function Login() {
@@ -8,7 +9,10 @@ let [typeofuser,setTypeofUser]=useState("");
 let handleSubmit=(event)=> {
     event.preventDefault();
     let login = {emailid,password,typeofuser}
-    console.log(login)
+    //console.log(login)
+    axios.post("http://localhost:9090/login/signIn",login).then(result=>console.log(result)).catch(error=>console.log(error));
+    setEmailId("");
+    setPassword("");
 }
     return(
         <div>
