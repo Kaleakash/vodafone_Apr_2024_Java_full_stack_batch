@@ -16,6 +16,7 @@ let handleSubmit=(event)=> {
         let login = {emailid,password,typeofuser}
     axios.post("http://localhost:9090/login/signIn",login).then(result=>{
         if(result.data=="Customer login successfully"){
+            sessionStorage.setItem("user",emailid);
               navigate("/customer")
         }else if(result.data=="Admin login successfully"){
             navigate("/admin")
@@ -45,6 +46,8 @@ let handleSubmit=(event)=> {
                 <input type="submit" value="SignIn"/>
                 <input type="reset" value="reset"/>
             </form>
+            <br/>
+            <a onClick={()=>navigate("/signup")}>SignUp</a>
         </div>
     )
 }

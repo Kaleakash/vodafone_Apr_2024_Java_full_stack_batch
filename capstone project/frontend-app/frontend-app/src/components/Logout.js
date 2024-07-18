@@ -5,7 +5,7 @@ function Logout() {
 let navigate = useNavigate();
 
 let handleLogout= ()=> {
-
+    sessionStorage.removeItem("user");
     navigate("/")
 }
     return(
